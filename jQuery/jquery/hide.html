@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show and Hide Effect</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .faq-question {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .faq-answer {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <p id="paragraph">This is a paragraph that can be hidden or shown.</p>
+  <button id="hideButton">Hide</button>
+  <button id="showButton">Show</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#hideButton").click(function() {
+        $("#paragraph").hide();
+      });
+      $("#showButton").click(function() {
+        $("#paragraph").show();
+      });
+    });
+  </script>
+
+  <div class="faq">
+    <div class="faq-question">What is jQuery?</div>
+    <div class="faq-answer">jQuery is a JavaScript library that simplifies the process of interacting with HTML and CSS.</div>
+  </div>
+  <div class="faq">
+    <div class="faq-question">What are the benefits of using jQuery?</div>
+    <div class="faq-answer">The benefits of using jQuery include simplified DOM manipulation, event handling, and animation.</div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $(".faq-question").click(function() {
+        $(this).next(".faq-answer").slideToggle();
+      });
+    });
+  </script>
+</body>
+</html>

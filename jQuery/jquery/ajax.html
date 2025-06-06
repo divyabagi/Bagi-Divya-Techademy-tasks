@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch Data</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Random User Data</h1>
+  <div id="user-data"></div>
+
+  <script>
+    $(document).ready(function() {
+      $.get("https://randomuser.me/api/", function(data) {
+        $("#user-data").html(`
+          <p>Name: ${data.results[0].name.first} ${data.results[0].name.last}</p>
+          <p>Email: ${data.results[0].email}</p>
+          <img src="${data.results[0].picture.thumbnail}" alt="User Picture">
+        `);
+      });
+    });
+  </script>
+
+
+
+<form id="name-form">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="response"></div>
+
+  <script>
+    $(document).ready(function() {
+      $("#name-form").submit(function(event) {
+        event.preventDefault();
+        var name = $("#name").val();
+        $.post("https://httpbin.org/post", { name: name }, function(data) {
+          $("#response").html(`Hello, ${data.form.name}! How are you?`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

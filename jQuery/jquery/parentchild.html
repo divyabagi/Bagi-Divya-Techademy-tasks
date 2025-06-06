@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title>ParentChild Selection and sibling</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .parent {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <span>This is a span element.</span>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $("span").parent().css("background-color", "lightblue");
+    });
+  </script>
+  <p id="first">This is the first paragraph.</p>
+  <p id="second">This is the second paragraph.</p>
+
+  <script>
+    $(document).ready(function() {
+      $("#first").next().css("font-weight", "bold");
+    });
+  </script>
+</body>
+</html>

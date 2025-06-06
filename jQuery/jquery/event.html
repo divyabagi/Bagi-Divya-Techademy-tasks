@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Event</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <button id="clickButton">Click me!</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#clickButton").click(function() {
+        alert("Button clicked!");
+      });
+    });
+  </script>
+  <p id="hoverParagraph">Hover over me!</p>
+
+  <script>
+    $(document).ready(function() {
+      $("#hoverParagraph").hover(
+        function() {
+          $(this).text("Mouse is hovering!");
+        },
+        function() {
+          $(this).text("Mouse is not hovering!");
+        }
+      );
+    });
+  </script>
+</body>
+</html>

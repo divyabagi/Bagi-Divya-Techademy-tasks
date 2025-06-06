@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Required Field Check</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="required-form">
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" name="name">
+    <span class="error" id="name-error"></span>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      $("#required-form").submit(function(event) {
+        var name = $("#name").val();
+        if (name === "") {
+          event.preventDefault();
+          $("#name-error").text("Name is required");
+        } else {
+          $("#name-error").text("");
+        }
+      });
+    });
+  </script>
+
+
+
+
+<form id="email-form">
+    <label for="email">Enter your email:</label>
+    <input type="email" id="email" name="email">
+    <span class="error" id="email-error"></span>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      $("#email-form").submit(function(event) {
+        var email = $("#email").val();
+        var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          event.preventDefault();
+          $("#email-error").text("Invalid email format");
+        } else {
+          $("#email-error").text("");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
